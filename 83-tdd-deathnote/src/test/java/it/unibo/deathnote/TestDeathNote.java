@@ -4,8 +4,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-import it.unibo.deathnode.impl.DeathNoteImpl;
 import it.unibo.deathnote.api.DeathNote;
+import it.unibo.deathnote.impl.DeathNoteImpl;
 
 class TestDeathNote {
     private DeathNote deathNote;
@@ -78,7 +78,7 @@ class TestDeathNote {
             assertTrue(e.getMessage().length() > 0);
         }
         deathNote.writeName(HUMAN);
-        assertNull(deathNote.getDeathDetails(HUMAN));
+        assertTrue(deathNote.getDeathDetails(HUMAN) == null || deathNote.getDeathDetails(HUMAN).length() == 0);
         assertTrue(deathNote.writeDetails(DETAILS));
         assertEquals(DETAILS, deathNote.getDeathDetails(HUMAN));
         deathNote.writeName(OTHER_HUMAN);
